@@ -6,8 +6,8 @@ import { Main } from 'src/components/Main';
 
 export default function Home(props) {
   const {
-    count,
     isShow,
+    doubleCount,
     handleClick,
     handleDisplay,
     text,
@@ -22,7 +22,7 @@ export default function Home(props) {
         <title>Index Page</title>
       </Head>
       <Header />
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doubleCount}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? '非表示' : '表示'}</button>
       <input type='text' value={text} onChange={handleChange} />
