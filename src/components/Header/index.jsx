@@ -4,6 +4,7 @@ import Link from 'next/link';
 const NAV_ITEMS = [
   { href: '/', label: 'Index' },
   { href: '/posts', label: 'Posts' },
+  { href: '/users', label: 'Users' },
 ];
 
 export const Header = () => {
