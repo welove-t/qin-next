@@ -2,7 +2,7 @@ import classes from 'src/components/Header/Header.module.css';
 import Link from 'next/link';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Index' },
+  { href: '/posts', label: 'Posts' },
   { href: '/about', label: 'About' },
 ];
 
