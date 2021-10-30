@@ -1,9 +1,10 @@
 import { useUser } from 'src/hooks/useUser';
 import Head from 'next/head';
+import { PostsByUserId } from 'src/components/Posts/PostsByUserId';
 
 export const User = () => {
-  const { posts, user, error, isLoading } = useUser();
-  console.log(posts);
+  const { data, error, isLoading } = useUser();
+
   if (isLoading) {
     return <div>ローディング中です</div>;
   }
@@ -14,15 +15,23 @@ export const User = () => {
   return (
     <div>
       <Head>
-        <title>{user?.name}投稿一覧</title>
+        <title>{data.name}投稿一覧</title>
       </Head>
-      <h1>{user?.name}さんの投稿一覧</h1>
-      <ol>
-        {posts &&
-          posts.map((post) => {
-            return <li key={post.id}>{post.title}</li>;
-          })}
-      </ol>
+      <h1>{data.name}さん</h1>
+
+      <h2>詳細</h2>
+      <ul>
+        <li>{data.email}</li>
+        <li>{data.username}</li>
+        <li>{data.address.city}</li>
+        <li>{data.phone}</li>
+        <li>{data.website}</li>
+        <li>{data.company.name}</li>
+      </ul>
+      <h2>投稿</h2>
+
+      <PostsByUserId id={data.id} />
+      <h2>コメント</h2>
     </div>
   );
 };
