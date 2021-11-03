@@ -5,7 +5,7 @@ import { SWRConfig } from 'swr';
 
 const fetcher = async (url) => {
   const response = await fetch(url);
-
+  console.log('Static');
   if (!response.ok) {
     throw new Error('エラーが発生したため、データの取得に失敗しました');
   }
