@@ -1,12 +1,12 @@
 import { API_URL } from 'src/components/utils/const';
-import useSWR from 'swr';
+import { useFetch } from 'src/hooks/useFetch';
 
-export const UserByUserId = (props) => {
-  const { data, error } = useSWR(
+export const UserNameByUserId = (props) => {
+  const { data, error, isLoading } = useFetch(
     props.id ? `${API_URL}/users/${props.id}` : null
   );
 
-  if (!data && !error) {
+  if (isLoading) {
     return <div>ローディング中です</div>;
   }
   if (error) {
